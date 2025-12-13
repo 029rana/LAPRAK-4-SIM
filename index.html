@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tik Tak Top - Kursus Komputer Profesional</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand logo" href="#home">
+                <i class="fas fa-laptop-code"></i>
+                <span>TIK</span><span>TAK</span><span>TOP</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home"><i class="fas fa-home me-1"></i>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about"><i class="fas fa-info-circle me-1"></i>Tentang Kami</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" data-bs-toggle="dropdown">
+                            <i class="fas fa-concierge-bell me-1"></i>Layanan
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#registration"><i class="fas fa-user-plus me-2"></i>Pendaftaran</a></li>
+                            <li><a class="dropdown-item" href="#services"><i class="fas fa-info me-2"></i>Info Layanan</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#classes"><i class="fas fa-graduation-cap me-1"></i>Kelas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Selamat Datang di Tik Tak Top Course</h1>
+                <p>Kursus komputer profesional dengan metode pembelajaran modern dan praktis. Ubah keterampilan Anda menjadi karir digital yang sukses.</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">5000+</span>
+                        <span class="stat-label">Siswa Lulus</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Perusahaan Mitra</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Tingkat Kelulusan</span>
+                    </div>
+                </div>
+                
+                <a href="#registration" class="btn btn-primary mt-4">
+                    <i class="fas fa-user-plus me-2"></i>Daftar Sekarang
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-bg"></div>
+        <div class="container about-content">
+            <h2 class="section-title">Tentang Kami</h2>
+            
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <p class="lead mb-4">
+                        <strong>Tik Tak Top Course</strong> didirikan pada tahun 2012 dengan misi untuk membekali generasi muda Indonesia dengan keterampilan digital yang relevan di era teknologi modern. Kami telah berkembang menjadi salah satu lembaga kursus komputer terpercaya dengan ribuan alumni yang sukses.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row mb-5">
+                <div class="col-md-4 mb-4">
+                    <div class="mission-card">
+                        <h4><i class="fas fa-bullseye me-2"></i>Misi Kami</h4>
+                        <p class="mb-0">Menyediakan pendidikan teknologi yang berkualitas, terjangkau, dan relevan dengan kebutuhan industri untuk menciptakan talenta digital yang kompeten dan siap bersaing di pasar global.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="mission-card">
+                        <h4><i class="fas fa-eye me-2"></i>Visi Kami</h4>
+                        <p class="mb-0">Menjadi lembaga kursus komputer terdepan di Indonesia yang dikenal dengan metode pembelajaran inovatif dan tingkat keberhasilan alumni yang tinggi dalam dunia kerja.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="mission-card">
+                        <h4><i class="fas fa-handshake me-2"></i>Nilai Kami</h4>
+                        <p class="mb-0">Kami percaya pada pembelajaran praktis, kolaborasi, inovasi, dan komitmen untuk kesuksesan setiap siswa. Kualitas adalah prioritas utama dalam setiap program yang kami tawarkan.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tim Pengajar -->
+            <h3 class="text-center mb-5" style="color: var(--cyan);">Tim Pengajar Profesional</h3>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h4>Budi Santoso, M.Kom</h4>
+                        <p class="mb-1"><small>Lead Web Development Instructor</small></p>
+                        <p class="mb-3" style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">
+                            10+ tahun pengalaman sebagai Full Stack Developer. Pernah bekerja di perusahaan teknologi multinasional.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <div class="feature-icon" style="background: linear-gradient(135deg, var(--cyan), #008b8b);">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Sari Dewi, M.Si</h4>
+                        <p class="mb-1"><small>Data Science Specialist</small></p>
+                        <p class="mb-3" style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">
+                            Ahli data analytics dengan pengalaman di perusahaan fintech. Spesialisasi di Python dan Machine Learning.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <div class="feature-icon" style="background: linear-gradient(135deg, #9d4edd, #6a0dad);">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h4>Rina Wijaya, S.Ds</h4>
+                        <p class="mb-1"><small>UI/UX Design Expert</small></p>
+                        <p class="mb-3" style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">
+                            Desainer dengan portofolio internasional. Menguasai Figma, Adobe Creative Suite, dan design thinking.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="humor-box mt-5">
+                <h5 class="humor-title"><i class="fas fa-grin-squint-tears"></i> Fakta Lucu tentang Kami</h5>
+                <p class="mb-0">Tim pengajar kami memiliki total koleksi 127 stiker kucing di Slack, dan semua mentor setuju bahwa kopi adalah bahan bakar utama untuk debugging!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facts Section -->
+    <section class="facts-section">
+        <div class="container">
+            <h2 class="section-title">Fakta Unik Tik Tak Top</h2>
+            
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="fact-item">
+                        <strong><i class="fas fa-tachometer-alt"></i> Metode Pembelajaran 3x Lebih Cepat</strong>
+                        <p class="mb-0 mt-2">Dengan sistem "Tik Tak", siswa bisa menguasai materi dasar hanya dalam 2 minggu.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="fact-item">
+                        <strong><i class="fas fa-trophy"></i> Juara Kompetisi Nasional</strong>
+                        <p class="mb-0 mt-2">Siswa kami telah memenangkan 15+ kompetisi coding tingkat nasional.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="fact-item">
+                        <strong><i class="fas fa-user-graduate"></i> 95% Tingkat Kelulusan</strong>
+                        <p class="mb-0 mt-2">Hampir semua siswa berhasil menyelesaikan kursus dan mendapatkan sertifikasi.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="fact-item">
+                        <strong><i class="fas fa-handshake"></i> Kerjasama dengan 50+ Perusahaan</strong>
+                        <p class="mb-0 mt-2">Jaringan luas dengan perusahaan teknologi untuk penempatan kerja.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section id="registration" class="registration-section">
+        <div class="container">
+            <h2 class="section-title">Formulir Pendaftaran</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="form-container">
+                        <form id="registrationForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="fullName" class="form-label">
+                                        <i class="fas fa-user"></i> Nama Lengkap
+                                    </label>
+                                    <input type="text" class="form-control" id="fullName" placeholder="Masukkan nama lengkap" required>
+                                    <div class="form-text">Harap menggunakan nama sesuai dokumen resmi.</div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-4">
+                                    <label for="program" class="form-label">
+                                        <i class="fas fa-graduation-cap"></i> Program Kursus
+                                    </label>
+                                    <select class="form-select" id="program" required>
+                                        <option value="" selected disabled>Pilih program yang diinginkan</option>
+                                        <option value="Web Development">Web Development</option>
+                                        <option value="Data Science">Data Science</option>
+                                        <option value="UI/UX Design">UI/UX Design</option>
+                                        <option value="Mobile Development">Mobile Development</option>
+                                        <option value="Cyber Security">Cyber Security</option>
+                                        <option value="Game Development">Game Development</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="nik" class="form-label">
+                                        <i class="fas fa-id-card"></i> NIK / Nomor Induk
+                                    </label>
+                                    <input type="text" class="form-control" id="nik" placeholder="Nomor Induk Kependudukan" required>
+                                    <div class="form-text">Untuk keperluan administrasi dan sertifikasi.</div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-4">
+                                    <label for="phone" class="form-label">
+                                        <i class="fas fa-phone"></i> Nomor WhatsApp
+                                    </label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="08xxxxxxxxxx" required>
+                                    <div class="form-text">Kami akan mengirim konfirmasi via WhatsApp.</div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="address" class="form-label">
+                                    <i class="fas fa-map-marker-alt"></i> Alamat Lengkap
+                                </label>
+                                <textarea class="form-control" id="address" rows="3" placeholder="Alamat lengkap untuk pengiriman sertifikat" required></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="terms" required>
+                                    <label class="form-check-label" for="terms">
+                                        Saya menyetujui syarat dan ketentuan yang berlaku.
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-paper-plane me-2"></i>Daftar Sekarang
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Info -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">Informasi Layanan</h2>
+            
+            <div class="row g-4 mt-2">
+                <div class="col-md-6">
+                    <div class="service-card">
+                        <h4 class="text-pink mb-3"><i class="fas fa-user-plus me-2"></i>Pendaftaran Anggota</h4>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-pink me-2"></i>Formulir online yang sederhana</li>
+                            <li><i class="fas fa-check text-pink me-2"></i>Konfirmasi dalam 24 jam</li>
+                            <li><i class="fas fa-check text-pink me-2"></i>Pembayaran fleksibel</li>
+                            <li><i class="fas fa-check text-pink me-2"></i>Welcome kit untuk member baru</li>
+                            <li><i class="fas fa-check text-pink me-2"></i>Akses materi seumur hidup</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="service-card">
+                        <h4 class="text-cyan mb-3"><i class="fas fa-concierge-bell me-2"></i>Layanan Kami</h4>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-cyan me-2"></i>Konsultasi karir 1-on-1</li>
+                            <li><i class="fas fa-check text-cyan me-2"></i>Workshop bulanan gratis</li>
+                            <li><i class="fas fa-check text-cyan me-2"></i>Akses job portal eksklusif</li>
+                            <li><i class="fas fa-check text-cyan me-2"></i>Review portofolio gratis</li>
+                            <li><i class="fas fa-check text-cyan me-2"></i>Networking event rutin</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes Section -->
+    <section id="classes" class="classes-section">
+        <div class="container">
+            <h2 class="section-title">Program Kursus</h2>
+            
+            <div class="humor-box">
+                <h5 class="humor-title"><i class="fas fa-lightbulb"></i> Tips Memilih Kelas</h5>
+                <p class="mb-0">"Pilih kelas yang paling membuat kamu excited! Belajar coding harus menyenangkan, bukan membosankan!"</p>
+            </div>
+            
+            <div class="row g-4 mt-4">
+                <!-- Class 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="class-card">
+                        <div class="class-header">
+                            <div class="class-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h4 class="class-title">Web Development</h4>
+                        </div>
+                        <div class="class-body">
+                            <p>Pelajari HTML, CSS, JavaScript, dan framework modern untuk menjadi full-stack developer.</p>
+                            <div class="class-price">Rp 2.500.000</div>
+                            <span class="badge">16 Pertemuan</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Class 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="class-card">
+                        <div class="class-header">
+                            <div class="class-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h4 class="class-title">Data Science</h4>
+                        </div>
+                        <div class="class-body">
+                            <p>Master Python, SQL, dan machine learning untuk analisis data dan AI.</p>
+                            <div class="class-price">Rp 3.000.000</div>
+                            <span class="badge">20 Pertemuan</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Class 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="class-card">
+                        <div class="class-header">
+                            <div class="class-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <h4 class="class-title">UI/UX Design</h4>
+                        </div>
+                        <div class="class-body">
+                            <p>Belajar desain interface, user experience, dan prototyping dengan tools terbaru.</p>
+                            <div class="class-price">Rp 2.200.000</div>
+                            <span class="badge">14 Pertemuan</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Class 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="class-card">
+                        <div class="class-header">
+                            <div class="class-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h4 class="class-title">Mobile Development</h4>
+                        </div>
+                        <div class="class-body">
+                            <p>Buat aplikasi Android dan iOS dengan React Native dan Flutter.</p>
+                            <div class="class-price">Rp 2.800.000</div>
+                            <span class="badge">18 Pertemuan</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Class 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="class-card">
+                        <div class="class-header">
+                            <div class="class-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4 class="class-title">Cyber Security</h4>
+                        </div>
+                        <div class="class-body">
+                            <p>Pelajari ethical hacking, penetration testing, dan keamanan jaringan.</p>
+                            <div class="class-price">Rp 3.500.000</div>
+                            <span class="badge">22 Pertemuan</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Class 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="class-card">
+                        <div class="class-header">
+                            <div class="class-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <h4 class="class-title">Game Development</h4>
+                        </div>
+                        <div class="class-body">
+                            <p>Buat game 2D/3D dengan Unity dan Unreal Engine untuk berbagai platform.</p>
+                            <div class="class-price">Rp 3.200.000</div>
+                            <span class="badge">20 Pertemuan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="footer-title">Tik Tak Top Course</h5>
+                    <p class="mb-3">Kursus komputer profesional dengan metode pembelajaran modern dan praktis. Transformasi karir digital Anda dimulai di sini.</p>
+                    
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="footer-title">Kontak Kami</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Jl. Teknologi No. 123, Jakarta</a></li>
+                        <li><a href="tel:+622145678901"><i class="fas fa-phone"></i> (021) 4567-8901</a></li>
+                        <li><a href="mailto:info@tiktaktop.com"><i class="fas fa-envelope"></i> info@tiktaktop.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Senin - Sabtu: 08.00 - 20.00</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="footer-title">Link Cepat</h5>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> Tentang Kami</a></li>
+                        <li><a href="#registration"><i class="fas fa-chevron-right"></i> Pendaftaran</a></li>
+                        <li><a href="#classes"><i class="fas fa-chevron-right"></i> Kelas</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Layanan</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Tik Tak Top Course. All rights reserved. Designed with <i class="fas fa-heart text-pink"></i> for the digital future.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background: var(--black-light); border: 2px solid var(--pink);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-pink text-center w-100"><i class="fas fa-check-circle me-2"></i>Pendaftaran Berhasil!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="mb-4">
+                        <i class="fas fa-party-horn fa-3x" style="color: var(--pink);"></i>
+                    </div>
+                    <h4 class="mb-3" style="color: var(--cyan);">Selamat! Anda Telah Terdaftar</h4>
+                    <p class="mb-4">Tim kami akan menghubungi Anda via WhatsApp dalam waktu 24 jam untuk proses selanjutnya.</p>
+                    
+                    <div class="alert alert-info" style="background: rgba(255,45,149,0.1); border-color: var(--pink);">
+                        <i class="fas fa-gift me-2"></i>
+                        <strong>Bonus Pendaftaran:</strong> Dapatkan akses gratis ke workshop online!
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-primary w-100" data-bs-dismiss="modal">Mengerti, Terima Kasih!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
