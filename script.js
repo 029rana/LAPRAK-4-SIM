@@ -4,7 +4,12 @@ const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyxOku_tvcEF8
 // MAIN FORM HANDLER - FIXED VERSION
 // ============================================
 
-document.getElementById('registrationForm').addEventListener('submit', function(e) {
+function setupFormHandler() {
+    const form = document.getElementById('registrationForm');
+    form.addEventListener('submit', handleFormSubmit);
+}
+
+function handleFormSubmit(e) {
     e.preventDefault();
     
     console.log('🔄 Form submission started...');
@@ -35,7 +40,10 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     
     // METHOD 1: Coba dengan XMLHttpRequest (LEBIH BAIK untuk Google Apps Script)
     submitWithXHR(formData);
-});
+}
+
+// Setup form handler when DOM is ready
+document.addEventListener('DOMContentLoaded', setupFormHandler);
 
 // ============================================
 // SUBMIT FUNCTIONS - MULTIPLE METHODS
