@@ -1,5 +1,9 @@
 // Google Apps Script URL
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyxOku_tvcEF88FQCCQoNcpI81WcJaZkqAGB-06qhOBFSkxw7FTZopjeaNwT8CSRTae/exec";
+
+// Flag to prevent multiple submissions
+let isSubmitting = false;
+
 // ============================================
 // MAIN FORM HANDLER - FIXED VERSION
 // ============================================
@@ -11,6 +15,12 @@ function setupFormHandler() {
 
 function handleFormSubmit(e) {
     e.preventDefault();
+    
+    // Prevent multiple submissions
+    if (isSubmitting) {
+        console.log('⚠️ Already submitting, please wait...');
+        return;
+    }
     
     console.log('🔄 Form submission started...');
     
@@ -34,6 +44,13 @@ function handleFormSubmit(e) {
         console.log('❌ Validation failed');
         return;
     }
+    
+    // Mark as submitting
+    isSubmitting = true;
+    
+    // Disable submit button
+    const submitBtn = document.querySelector('button[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
     
     // Show loading
     showLoading(true);
@@ -68,25 +85,26 @@ function submitWithFormData(data) {
     .then(response => {
         console.log('📨 Response status:', response.status);
         showLoading(false);
+        isSubmitting = false;
         
         // Assume success after response
         showSuccessModal(data);
         document.getElementById('registrationForm').reset();
         
-        // Try to sync with localStorage backup
-        saveToLocalStorage(data);
+        // Enable submit button again
+        const submitBtn = document.querySelector('button[type="submit"]');
+        if (submitBtn) submitBtn.disabled = false;
     })
     .catch(error => {
         console.log('❌ Error:', error);
         showLoading(false);
+        isSubmitting = false;
         
-        // Final fallback: localStorage only if error
-        if (saveToLocalStorage(data)) {
-            showWarningModal(data);
-            document.getElementById('registrationForm').reset();
-        } else {
-            showErrorModal('Gagal mengirim data. Coba lagi nanti.');
-        }
+        // Enable submit button again
+        const submitBtn = document.querySelector('button[type="submit"]');
+        if (submitBtn) submitBtn.disabled = false;
+        
+        showErrorModal('Gagal mengirim data. Coba lagi nanti.');
     });
 }
 
@@ -113,22 +131,8 @@ function saveToLocalStorage(data) {
 }
 
 function syncPendingData() {
-    try {
-        const pending = JSON.parse(localStorage.getItem('tiktaktop_pending') || '[]');
-        if (pending.length === 0) return;
-        
-        console.log('🔄 Syncing', pending.length, 'pending data...');
-        
-        // Sync satu per satu
-        pending.forEach((data, index) => {
-            setTimeout(() => {
-                submitWithXHR(data);
-            }, index * 1000); // Delay 1 detik antar data
-        });
-        
-    } catch (error) {
-        console.error('❌ Sync error:', error);
-    }
+    // Disabled to prevent duplicate submissions
+    console.log('ℹ️ Sync pending data is disabled');
 }
 
 // ============================================
