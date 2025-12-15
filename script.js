@@ -38,91 +38,20 @@ function handleFormSubmit(e) {
     // Show loading
     showLoading(true);
     
-    // METHOD 1: Coba dengan XMLHttpRequest (LEBIH BAIK untuk Google Apps Script)
-    submitWithXHR(formData);
+    // Submit form
+    submitWithFormData(formData);
 }
 
 // Setup form handler when DOM is ready
 document.addEventListener('DOMContentLoaded', setupFormHandler);
 
 // ============================================
-// SUBMIT FUNCTIONS - MULTIPLE METHODS
+// SUBMIT FUNCTIONS - SINGLE METHOD
 // ============================================
 
-// Method 1: XMLHttpRequest (RECOMMENDED)
-function submitWithXHR(data) {
-    console.log('🔄 Trying XHR method...');
-    
-    const xhr = new XMLHttpRequest();
-    const url = GOOGLE_SCRIPT_URL;
-    
-    xhr.open('POST', url, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4) {
-            showLoading(false);
-            
-            if (xhr.status === 200) {
-                try {
-                    const response = JSON.parse(xhr.responseText);
-                    console.log('✅ XHR Success:', response);
-                    
-                    if (response.success) {
-                        showSuccessModal(data);
-                        document.getElementById('registrationForm').reset();
-                        
-                        // Open WhatsApp
-                        setTimeout(() => {
-                            sendWhatsAppNotification(data);
-                        }, 1500);
-                        
-                    } else {
-                        showErrorModal(response.message || 'Gagal menyimpan data');
-                    }
-                } catch (error) {
-                    console.log('⚠️ XHR Response not JSON, but might still succeed');
-                    showSuccessModal(data);
-                    document.getElementById('registrationForm').reset();
-                    
-                    setTimeout(() => {
-                        sendWhatsAppNotification(data);
-                    }, 1500);
-                }
-            } else {
-                console.log('❌ XHR Failed:', xhr.status, xhr.statusText);
-                
-                // Fallback to Method 2
-                submitWithFormData(data);
-            }
-        }
-    };
-    
-    xhr.onerror = function() {
-        console.log('❌ XHR Network error');
-        showLoading(false);
-        submitWithFormData(data);
-    };
-    
-    xhr.timeout = 10000; // 10 seconds timeout
-    xhr.ontimeout = function() {
-        console.log('❌ XHR Timeout');
-        showLoading(false);
-        submitWithFormData(data);
-    };
-    
-    try {
-        xhr.send(JSON.stringify(data));
-    } catch (error) {
-        console.log('❌ XHR Send error:', error);
-        showLoading(false);
-        submitWithFormData(data);
-    }
-}
-
-// Method 2: FormData (Alternative)
+// Single submission method using FormData
 function submitWithFormData(data) {
-    console.log('🔄 Trying FormData method...');
+    console.log('🔄 Submitting data...');
     
     const formData = new FormData();
     formData.append('name', data.name);
@@ -135,28 +64,23 @@ function submitWithFormData(data) {
     fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         body: formData,
-        // mode: 'no-cors' // JANGAN pakai no-cors!
     })
     .then(response => {
-        console.log('📨 FormData response status:', response.status);
+        console.log('📨 Response status:', response.status);
         showLoading(false);
         
-        // Even if we can't read response, assume success
+        // Assume success after response
         showSuccessModal(data);
         document.getElementById('registrationForm').reset();
-        
-        setTimeout(() => {
-            sendWhatsAppNotification(data);
-        }, 1500);
         
         // Try to sync with localStorage backup
         saveToLocalStorage(data);
     })
     .catch(error => {
-        console.log('❌ FormData error:', error);
+        console.log('❌ Error:', error);
         showLoading(false);
         
-        // Final fallback: localStorage
+        // Final fallback: localStorage only if error
         if (saveToLocalStorage(data)) {
             showWarningModal(data);
             document.getElementById('registrationForm').reset();
