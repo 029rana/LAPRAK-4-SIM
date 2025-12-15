@@ -84,11 +84,16 @@ function submitWithFormData(data) {
     })
     .then(response => {
         console.log('📨 Response status:', response.status);
+        console.log('✅ Data successfully submitted!');
+        
+        // Mark as done
         showLoading(false);
         isSubmitting = false;
         
-        // Assume success after response
+        // Show success notification
         showSuccessModal(data);
+        
+        // Reset form
         document.getElementById('registrationForm').reset();
         
         // Enable submit button again
@@ -96,7 +101,7 @@ function submitWithFormData(data) {
         if (submitBtn) submitBtn.disabled = false;
     })
     .catch(error => {
-        console.log('❌ Error:', error);
+        console.error('❌ Submission error:', error);
         showLoading(false);
         isSubmitting = false;
         
@@ -104,35 +109,8 @@ function submitWithFormData(data) {
         const submitBtn = document.querySelector('button[type="submit"]');
         if (submitBtn) submitBtn.disabled = false;
         
-        showErrorModal('Gagal mengirim data. Coba lagi nanti.');
+        showErrorModal('Gagal mengirim data. Silakan coba lagi.');
     });
-}
-
-// ============================================
-// BACKUP SYSTEM - localStorage
-// ============================================
-
-function saveToLocalStorage(data) {
-    try {
-        const pending = JSON.parse(localStorage.getItem('tiktaktop_pending') || '[]');
-        pending.push({
-            ...data,
-            savedAt: new Date().toISOString(),
-            id: Date.now() + Math.random()
-        });
-        
-        localStorage.setItem('tiktaktop_pending', JSON.stringify(pending));
-        console.log('💾 Saved to localStorage, total pending:', pending.length);
-        return true;
-    } catch (error) {
-        console.error('❌ localStorage error:', error);
-        return false;
-    }
-}
-
-function syncPendingData() {
-    // Disabled to prevent duplicate submissions
-    console.log('ℹ️ Sync pending data is disabled');
 }
 
 // ============================================
@@ -326,9 +304,6 @@ window.addEventListener('load', function() {
     
     // Test API connection
     testAPI();
-    
-    // Sync pending data
-    syncPendingData();
     
     // Update copyright year
     updateCopyrightYear();
