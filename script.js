@@ -1,5 +1,5 @@
 // Google Apps Script URL
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyxOku_tvcEF88FQCCQoNcpI81WcJaZkqAGB-06qhOBFSkxw7FTZopjeaNwT8CSRTae/exec;
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyxOku_tvcEF88FQCCQoNcpI81WcJaZkqAGB-06qhOBFSkxw7FTZopjeaNwT8CSRTae/exec";
 // ============================================
 // MAIN FORM HANDLER - FIXED VERSION
 // ============================================
@@ -219,15 +219,15 @@ function validateForm(data) {
     }
     
     // NIK
-    if (!data.nik || data.nik.length < 16) {
-        showValidationError('nik', 'NIK minimal 16 digit');
+    if (!data.nik || data.nik.length !== 16) {
+        showValidationError('nik', 'NIK harus 16 digit');
         isValid = false;
     }
     
     // Phone
-    const phoneRegex = /^08[1-9][0-9]{7,10}$/;
+    const phoneRegex = /^08[0-9]{8,13}$/;
     if (!data.phone || !phoneRegex.test(data.phone)) {
-        showValidationError('phone', 'Format WhatsApp: 08xxxxxxxxxx (min 10 digit)');
+        showValidationError('phone', 'Format WhatsApp: 08xxxxxxxxxx (10-15 digit)');
         isValid = false;
     }
     

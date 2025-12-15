@@ -81,6 +81,14 @@ h1, h2, h3, h4, h5, h6 {
     gap: 10px;
 }
 
+.logo-img {
+    height: 65px;
+    width: auto;
+    object-fit: contain;
+    mix-blend-mode: screen;
+    filter: contrast(1.2) brightness(1.1);
+}
+
 .logo span:nth-child(2) {
     color: var(--cyan);
 }
