@@ -52,10 +52,7 @@ function handleFormSubmit(e) {
     const submitBtn = document.querySelector('button[type="submit"]');
     if (submitBtn) submitBtn.disabled = true;
     
-    // Show loading
-    showLoading(true);
-    
-    // Submit form
+    // Submit form (without loading spinner)
     submitWithFormData(formData);
 }
 
@@ -87,7 +84,6 @@ function submitWithFormData(data) {
         console.log('✅ Data successfully submitted!');
         
         // Mark as done
-        showLoading(false);
         isSubmitting = false;
         
         // Show success notification
@@ -102,7 +98,6 @@ function submitWithFormData(data) {
     })
     .catch(error => {
         console.error('❌ Submission error:', error);
-        showLoading(false);
         isSubmitting = false;
         
         // Enable submit button again
