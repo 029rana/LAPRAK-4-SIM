@@ -262,34 +262,6 @@ function showErrorModal(message) {
 }
 
 // ============================================
-// WHATSAPP FUNCTION
-// ============================================
-
-function sendWhatsAppNotification(data) {
-    try {
-        const phone = data.phone.startsWith('0') ? '62' + data.phone.slice(1) : data.phone;
-        const message = `Halo ${data.name}!
-
-Terima kasih telah mendaftar di *TikTakTop Course*.
-
-📋 **Detail Pendaftaran:**
-👤 Nama: ${data.name}
-📚 Program: ${data.program}
-📱 WhatsApp: ${data.phone}
-
-Tim kami akan menghubungi Anda dalam 1x24 jam untuk konfirmasi.
-
-Salam hangat,
-TikTakTop Course Team`;
-
-        const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
-        
-    } catch (error) {
-        console.error('❌ WhatsApp error:', error);
-    }
-}
-
 // ============================================
 // INITIALIZATION
 // ============================================
